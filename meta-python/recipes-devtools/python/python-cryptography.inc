@@ -41,7 +41,7 @@ RDEPENDS_${PN}-ptest += " \
     ${PYTHON_PN}-pytest \
 "
 
-inherit ptest pypi python_setuptools3_rust cargo-update-recipe-crates pkgconfig
+inherit ptest
 
 do_install_ptest() {
     install -d ${D}${PTEST_PATH}/tests
