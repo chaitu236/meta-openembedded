@@ -3,6 +3,7 @@ require python-cryptography.inc
 
 SRC_URI += " \
     file://run-ptest \
+    file://0001-setup.py-Changes-to-get-build-working-without-rust-a.patch \
 "
 
 DEPENDS += " \
@@ -20,3 +21,11 @@ RDEPENDS_${PN}_class-target += " \
     ${PYTHON_PN}-contextlib \
     ${PYTHON_PN}-subprocess \
 "
+
+do_compile_prepend() {
+    export CRYPTOGRAPHY_DONT_BUILD_RUST=1
+}
+
+do_install_prepend() {
+    export CRYPTOGRAPHY_DONT_BUILD_RUST=1
+}
